@@ -584,8 +584,8 @@ video {
   right: 0.75rem;
 }
 
-.top-7 {
-  top: 1.75rem;
+.top-6 {
+  top: 1.5rem;
 }
 
 .mx-auto {
@@ -623,20 +623,12 @@ video {
   flex-direction: row;
 }
 
-.flex-col {
-  flex-direction: column;
-}
-
 .items-center {
   align-items: center;
 }
 
 .justify-start {
   justify-content: flex-start;
-}
-
-.justify-center {
-  justify-content: center;
 }
 
 .justify-between {
@@ -696,7 +688,8 @@ video {
 .hamburger-button {
   display: flex;
   flex-direction: column;
-  width: 39px;
+  width: 38px;
+  cursor: pointer;
 }
 
 .hamburger-dash {

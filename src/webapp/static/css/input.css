@@ -5,7 +5,8 @@
 .hamburger-button {
   display: flex;
   flex-direction: column;
-  width: 39px;
+  width: 38px;
+  cursor: pointer;
 }
 
 .hamburger-dash {
