@@ -19,7 +19,7 @@ a simple note taking webapp
 create venv: ```python3 -m venv .venv``` <br>
 activate venv: ```source .venv/bin/activate```
 
-### windows: 
+#### windows: 
 
 create venv:```python -m venv .venv``` <br>
 activate venv: ```venv\Scripts\activate```
