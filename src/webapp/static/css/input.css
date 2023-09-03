@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hamburger-button {
+  display: flex;
+  flex-direction: column;
+  width: 39px;
+}
+
+.hamburger-dash {
+  height: 3px;
+  width: 100%;
+  background-color: #282829;
+}
+
+.hamburger-dash:nth-child(2) {
+  transform: translateY(7.5px);
+}
+
+.hamburger-dash:nth-child(3) {
+  transform: translateY(15px);
+}

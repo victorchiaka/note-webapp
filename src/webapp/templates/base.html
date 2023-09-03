@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/dist/output.css">
+  <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+  <header class="bg-gray-300">
+    <div class="container mx-auto flex justify-between items-center px-3 flex-row relative">
+      <div class="text-blue-800 text-2xl my-5 flex justify-start">
+        <h1>web<span class="text-slate-800">notes</span></h1>
+      </div>
+
+      <nav class="hidden md:flex">
+        <a class="text-white text-lg ml-4 my-3">Home</a>
+        <a class="text-white text-lg ml-4 my-3">Sign Up</a>
+        <a class="text-white text-lg ml-4 my-3">Login</a>
+        <a class="text-white text-lg ml-4 my-3">Logout</a>
+      </nav>
+      
+      <button class="hamburger-button absolute top-7 right-3 md:hidden">
+        <span class="hamburger-dash"></span>
+        <span class="hamburger-dash"></span>
+        <span class="hamburger-dash"></span>
+      </button>
+    </div>
+    
+  </header>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/main.js')}}"></script>
+</body>
+</html>
