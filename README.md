@@ -31,4 +31,4 @@ activate venv: ```venv\Scripts\activate```
 ```pip3 install flask-login```
 
 ### Run app
-```flask --app src/main.py```
+```flask --app src/main.py run```
