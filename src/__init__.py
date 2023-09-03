@@ -19,4 +19,3 @@ def initialize_app():
         app.config["SECRET_KEY"] = SECRET_KEY
     
     return app
-    
