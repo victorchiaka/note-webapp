@@ -7,20 +7,20 @@
   <title>{% block title %} {% endblock %}</title>
 </head>
 <body>
-  <header class="bg-gray-300">
-    <div class="container mx-auto flex justify-between items-center px-3 flex-row relative">
-      <div class="text-blue-800 text-2xl my-5 flex justify-start">
-        <h1>web<span class="text-slate-800">notes</span></h1>
+  <header class="">
+    <div class="w-[90%] mx-auto flex justify-between items-center flex-row relative">
+      <div class="text-blue-800 my-5 flex justify-start">
+        <h1 class="text-3xl font-bold">web<span class="text-slate-800">notes</span></h1>
       </div>
 
       <nav class="hidden md:flex">
-        <a class="text-white text-lg ml-4 my-3">Home</a>
-        <a class="text-white text-lg ml-4 my-3">Sign Up</a>
-        <a class="text-white text-lg ml-4 my-3">Login</a>
-        <a class="text-white text-lg ml-4 my-3">Logout</a>
+        <a class="text-md ml-6 my-3 hover:bg-blue-50 hover:rounded-md">Home</a>
+        <a class="text-md ml-6 my-3 hover:bg-blue-50 hover:rounded-md">Sign Up</a>
+        <a class="text-md ml-6 my-3 hover:bg-blue-50 hover:rounded-md">Login</a>
+        <a class="text-md ml-6 my-3 w-[80px] h-8 text-center bg-blue-800 text-white rounded-2xl">Logout</a>
       </nav>
       
-      <button class="hamburger-button absolute top-6 right-3 md:hidden">
+      <button id="hamburger-toggler" class="hamburger-button absolute top-6 right-0 md:hidden">
         <span class="hamburger-dash"></span>
         <span class="hamburger-dash"></span>
         <span class="hamburger-dash"></span>
@@ -28,6 +28,14 @@
     </div>
     
   </header>
+
+  <div id="mobile-nav" class="mt-4 w-[90%] text-slate-800 font-bold items-center mx-auto shadow-md rounded-sm hidden md:hidden">
+    <a class="mt-7 moile-nav-items" href="">Home</a>
+    <a class="mt-7 moile-nav-items" href="">Sign Up</a>
+    <a class="mt-7 moile-nav-items" href="">login</a>
+    <a class="my-7 moile-nav-items" href="">Logout</a>
+  </div>
+
   <script type="text/javascript" src="{{ url_for('static', filename='js/main.js')}}"></script>
 </body>
 </html>
