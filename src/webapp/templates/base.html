@@ -7,33 +7,43 @@
   <title>{% block title %} {% endblock %}</title>
 </head>
 <body>
-  <header class="">
-    <div class="w-[90%] mx-auto flex justify-between items-center flex-row relative">
-      <div class="text-blue-800 my-5 flex justify-start">
-        <h1 class="text-3xl font-bold">web<span class="text-slate-800">notes</span></h1>
+  <header>
+    <nav class="w-[90%] mx-auto my-7 flex justify-between items-center flex-row relative">
+      <div class="text-blue-800 flex justify-start">
+        <h1 class="text-4xl font-bold">web<span class="text-slate-800">notes</span></h1>
       </div>
 
-      <nav class="hidden md:flex">
-        <a class="text-md ml-6 my-3 hover:bg-blue-50 hover:rounded-md">Home</a>
-        <a class="text-md ml-6 my-3 hover:bg-blue-50 hover:rounded-md">Sign Up</a>
-        <a class="text-md ml-6 my-3 hover:bg-blue-50 hover:rounded-md">Login</a>
-        <a class="text-md ml-6 my-3 w-[80px] h-8 text-center bg-blue-800 text-white rounded-2xl">Logout</a>
-      </nav>
+      <div class="hidden md:flex">
+        <a id="home" class="ml-6 w-[80px] text-center rounded-2xl hover:text-slate-600 hover:bg-blue-50" href="/">Home</a>
+        <a id="sign-up" class="ml-6 w-[80px] text-center rounded-2xl hover:text-slate-600 hover:bg-blue-50" href="/signup">Sign Up</a>
+        <a id="login" class="ml-6  w-[80px] text-center rounded-2xl hover:text-slate-600 hover:bg-blue-50" href="/login">Login</a>
+        <a id="logout" class="ml-6 w-[80px] h-8 text-center bg-blue-800 text-white rounded-2xl" href="/logout">Logout</a>
+      </div>
       
-      <button id="hamburger-toggler" class="hamburger-button absolute top-6 right-0 md:hidden">
+      <button id="hamburger-toggler" class="hamburger-button absolute top-3 right-0 md:hidden">
         <span class="hamburger-dash"></span>
         <span class="hamburger-dash"></span>
         <span class="hamburger-dash"></span>
       </button>
+
+    </nav>
+    <div class="md:hidden">
+      <div id="mobile-nav" class="mt-3 absolute left-6 right-6 w-auto text-slate-800 font-bold items-center shadow-md bg-gray-100 z-10 h-fit rounded-sm hidden">
+        <a class="mt-7 moile-nav-items" href="">Home</a>
+        <a class="mt-7 moile-nav-items" href="">Sign Up</a>
+        <a class="mt-7 moile-nav-items" href="">login</a>
+        <a class="my-7 moile-nav-items" href="">Logout</a>
+      </div>
     </div>
-    
   </header>
 
-  <div id="mobile-nav" class="mt-4 w-[90%] text-slate-800 font-bold items-center mx-auto shadow-md rounded-sm hidden md:hidden">
-    <a class="mt-7 moile-nav-items" href="">Home</a>
-    <a class="mt-7 moile-nav-items" href="">Sign Up</a>
-    <a class="mt-7 moile-nav-items" href="">login</a>
-    <a class="my-7 moile-nav-items" href="">Logout</a>
+
+
+
+  <div class="mt-20">
+    {% block content %}
+
+    {% endblock %}
   </div>
 
   <script type="text/javascript" src="{{ url_for('static', filename='js/main.js')}}"></script>
