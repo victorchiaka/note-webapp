@@ -17,7 +17,9 @@
         <a id="home" class="ml-6 w-[80px] text-center rounded-2xl hover:text-slate-600 hover:bg-blue-50" href="/">Home</a>
         <a id="sign-up" class="ml-6 w-[80px] text-center rounded-2xl hover:text-slate-600 hover:bg-blue-50" href="/signup">Sign Up</a>
         <a id="login" class="ml-6  w-[80px] text-center rounded-2xl hover:text-slate-600 hover:bg-blue-50" href="/login">Login</a>
-        <a id="logout" class="ml-6 w-[80px] h-8 text-center bg-blue-800 text-white rounded-2xl" href="/logout">Logout</a>
+        <button class="bg-blue-800 text-white w-[7rem] h-[2.2rem] ml-6 rounded-2xl">
+          <a id="logout" href="/logout">Logout</a>
+        </button>
       </div>
       
       <button id="hamburger-toggler" class="hamburger-button absolute top-3 right-0 md:hidden">
@@ -29,16 +31,13 @@
     </nav>
     <div class="md:hidden">
       <div id="mobile-nav" class="mt-3 absolute left-6 right-6 w-auto text-slate-800 font-bold items-center shadow-md bg-gray-100 z-10 h-fit rounded-sm hidden">
-        <a class="mt-7 moile-nav-items" href="/">Home</a>
-        <a class="mt-7 moile-nav-items" href="/signup">Sign Up</a>
-        <a class="mt-7 moile-nav-items" href="/login">login</a>
-        <a class="my-7 moile-nav-items" href="/logout">Logout</a>
+        <a id="home" class="mt-7 moile-nav-items" href="/">Home</a>
+        <a id="sign-up" class="mt-7 moile-nav-items" href="/signup">Sign Up</a>
+        <a id="login" class="mt-7 moile-nav-items" href="/login">login</a>
+        <a id="logout" class="my-7 moile-nav-items" href="/logout">Logout</a>
       </div>
     </div>
   </header>
-
-
-
 
   <div class="mt-20">
     {% block content %}
