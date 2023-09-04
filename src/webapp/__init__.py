@@ -1,6 +1,8 @@
 from dotenv import load_dotenv
 from flask import Flask
 import random, string, os
+from .views import views
+from .auth import auth
 
 load_dotenv()
 
@@ -18,9 +20,7 @@ def initialize_app():
     else:
         app.config["SECRET_KEY"] = SECRET_KEY
         
-    from .views import views
-    from .auth import auth
-    
+    # registeres the blueprint
     app.register_blueprint(views, url_prefix="/")
     app.register_blueprint(auth, url_prefix="/auth/")
     

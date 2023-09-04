@@ -2,15 +2,14 @@ from flask import Blueprint, render_template
 
 auth = Blueprint("auth", __name__)
 
-@auth.route("/hello")
-def index():
-    return "<h1>Hello</h1>"
+@auth.route("/signup")
+def signup():
+    return render_template("signup.html")
 
-# @auth.route("login")
-# def login():
-#     return "<h1>Login</h1>"
+@auth.route("/login")
+def login():
+    return render_template("login.html")
 
-
-# @auth.route("logout")
-# def login():
-#     return "<h1>Logout</h1>"
+@auth.route("/logout")
+def logout():
+    return "" # suppose to return a redirect to "/" after login the user out
