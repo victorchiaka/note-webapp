@@ -5,6 +5,28 @@
   {% block title %} WebNotes - Signup {% endblock %}
 </head>
 <body>
-  
+  {% block content %}
+  <div class="w-[90%] mx-auto flex flex-col items-center">
+    <form class="flex flex-col min-w-[400px] bg-blue-100 items-center py-6 space-y-7 rounded-md shadow-lg md:w-[500px]" method="POST">
+      <h3 class="text-2xl text-center font-bold">Signup</h3>
+      <div class="w-[95%] border-2">
+        <input class="h-12 w-full bg-slate-100 indent-4 border-2 border-gray-300 rounded-lg focus:outline-none" type="text" id="username" placeholder="username">
+      </div>
+      <div class="w-[95%] border-2">
+        <input class="h-12 w-full bg-slate-100 indent-4 border-2 border-gray-300 rounded-lg focus:outline-none" type="email" id="email" placeholder="email">
+      </div>
+      <div class="w-[95%] border-2">
+        <input class="h-12 w-full bg-slate-100 indent-4 border-2 border-gray-300 rounded-lg focus:outline-none" type="password" id="password" placeholder="password">
+      </div>
+      <div class="w-[95%]">
+        <input class="h-12 w-full bg-blue-800 text-white rounded-lg focus:outline-none focus:bg-blue-950" type="submit" value="Signup" id="submit-signup">
+      </div>
+      <div class="space-y-3 text-center py-3 text-slate-600">
+        <p>Already have an account?</p>
+        <a class="text-lg hover:text-blue-600 w-[80px] hover:cursor-pointer" href="/login">Login</a>
+      </div>
+    </form>
+  </div>
+{% endblock %}
 </body>
 </html>
