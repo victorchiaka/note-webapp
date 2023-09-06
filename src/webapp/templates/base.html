@@ -39,9 +39,35 @@
     </div>
   </header>
 
+  <!--message flashing-->
+  <div class="w-[90%] mx-auto">
+    {% with flashed_messages = get_flashed_messages(with_categories=true) %}
+      {% if flashed_messages %}
+        {% for category, message in flashed_messages %}
+          {% if category == "error" %}
+            <div id="flash-object" class="alert alert-danger">
+              <h1 class="alert-title alert-danger-title">
+                {{ category + "!" }}
+                <button id="flash-dismiss" class="text-4xl">&times;</button>
+              </h1>
+              <p class="alert-content alert-danger-content">{{ message }}</p>
+            </div>
+            {% endif %}
+            {% if category == "success" %}
+            <div id="flash-object" class="alert alert-success">
+              <h1 class="alert-title alert-success-title">
+                {{ category + "!" }}
+                <button id="flash-dismiss" class="text-4xl">&times;</button>
+              </h1>
+              <p class="alert-content alert-success-content">{{ message }}</p>
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </div>
   <div class="mt-20 text-slate-800">
     {% block content %}
-
     {% endblock %}
   </div>
 
