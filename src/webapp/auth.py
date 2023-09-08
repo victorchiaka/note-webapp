@@ -12,10 +12,10 @@ def signup():
         confirm_password = data.get("confirmpassword")
         
         if len(email) < 6:
-            flash("Email must be at least 6 charcters", "error")
+            flash("Email must be at least 6 charcters", "warning")
         
         elif len(username) < 3:
-            flash("Username must be at least 3 charcters", "error")
+            flash("Username must be at least 3 charcters", "warning")
         
         elif password != confirm_password:
             flash("Passwords don't match", "error")
@@ -25,8 +25,6 @@ def signup():
 
         else: flash("account successfully created", "success")
         
-        print(data)
-        
     return render_template("signup.html")
 
 @auth.route("/login")
@@ -35,4 +33,4 @@ def login():
 
 @auth.route("/logout")
 def logout():
-    return "" # suppose to return a redirect to "/" after login the user out
+    return ""

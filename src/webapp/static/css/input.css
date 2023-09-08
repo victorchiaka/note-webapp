@@ -4,8 +4,11 @@
 
 
 @layer components {
-  .alert {
+  /* .alert {
     @apply flex flex-col p-4 pt-2 border-l-4;
+  } */
+  .alert {
+    @apply flex flex-col p-4 pt-2 md:border-l-4;
   }
   .alert-title {
     @apply font-semibold italic text-lg flex justify-between;

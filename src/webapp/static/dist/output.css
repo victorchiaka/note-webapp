@@ -534,12 +534,21 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+/* .alert {
+    @apply flex flex-col p-4 pt-2 border-l-4;
+  } */
+
 .alert {
   display: flex;
   flex-direction: column;
-  border-left-width: 4px;
   padding: 1rem;
   padding-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .alert {
+    border-left-width: 4px;
+  }
 }
 
 .alert-title {
@@ -555,6 +564,25 @@ video {
   font-size: 0.875rem;
   line-height: 1.25rem;
   line-height: 1.25;
+}
+
+.alert-warning {
+  --tw-border-opacity: 1;
+  border-color: rgb(234 179 8 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 249 195 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(133 77 14 / var(--tw-text-opacity));
+}
+
+.alert-warning-title {
+  --tw-text-opacity: 1;
+  color: rgb(234 179 8 / var(--tw-text-opacity));
+}
+
+.alert-warning-content {
+  --tw-text-opacity: 1;
+  color: rgb(133 77 14 / var(--tw-text-opacity));
 }
 
 .alert-danger {
@@ -670,6 +698,10 @@ video {
   margin-top: 2.25rem;
 }
 
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
 .block {
   display: block;
 }
@@ -693,6 +725,10 @@ video {
 .h-fit {
   height: -moz-fit-content;
   height: fit-content;
+}
+
+.h-full {
+  height: 100%;
 }
 
 .w-\[310px\] {
@@ -743,6 +779,10 @@ video {
   justify-content: flex-start;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
 .justify-between {
   justify-content: space-between;
 }
@@ -751,10 +791,6 @@ video {
   --tw-space-y-reverse: 0;
   margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
-}
-
-.self-end {
-  align-self: flex-end;
 }
 
 .rounded-2xl {
@@ -795,6 +831,11 @@ video {
   border-color: rgb(30 64 175 / var(--tw-border-opacity));
 }
 
+.border-cyan-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(103 232 249 / var(--tw-border-opacity));
+}
+
 .bg-blue-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(30 64 175 / var(--tw-bg-opacity));
@@ -808,6 +849,11 @@ video {
 .bg-gray-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
+
+.bg-sky-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(125 211 252 / var(--tw-bg-opacity));
 }
 
 .text-center {
@@ -967,6 +1013,11 @@ video {
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.active\:bg-blue-900:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 58 138 / var(--tw-bg-opacity));
 }
 
 @media (min-width: 768px) {
