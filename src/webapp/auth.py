@@ -3,7 +3,7 @@ from flask import Blueprint, render_template, request, flash
 auth = Blueprint("auth", __name__)
 
 @auth.route("/signup", methods=["GET", "POST"])
-def signup():
+def signup():    
     if request.method == "POST":
         data = request.form
         username = data.get("username")

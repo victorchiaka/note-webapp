@@ -30,11 +30,16 @@ def generate_secret(length):
         )
 
 def initialize_app():
+    
+    from .models import User, Note
+    
     app = Flask(__name__)
     if not SECRET_KEY:
         app.config["SECRET_KEY"] = generate_secret(random.randint(12, 30))
     else:
         app.config["SECRET_KEY"] = SECRET_KEY
+        
+    
         
     # registeres the blueprint
     app.register_blueprint(views, url_prefix="/")
