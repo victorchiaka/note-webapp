@@ -8,22 +8,6 @@ load_dotenv()
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 
-def establish_sql_connection():
-    DB_HOST = os.getenv("DB_HOST")
-    DB_NAME = os.getenv("DB_NAME")
-    DB_USER = os.getenv("DB_USER")
-    DB_PASSWORD = os.getenv("DB_PASSWORD")
-    DB_PORT = os.getenv("DB_PORT")
-    
-    return psycopg2.connect(
-        database=DB_NAME,
-        host=DB_HOST,
-        port=DB_PORT,
-        user=DB_USER,
-        password=DB_PASSWORD
-    )
-    
-
 def generate_secret(length):
     return "".join(
         random.choice(string.ascii_lowercase) for i in range(length)
@@ -31,16 +15,17 @@ def generate_secret(length):
 
 def initialize_app():
     
-    from .models import User, Note
-    
     app = Flask(__name__)
     if not SECRET_KEY:
         app.config["SECRET_KEY"] = generate_secret(random.randint(12, 30))
     else:
         app.config["SECRET_KEY"] = SECRET_KEY
         
+    from .database import establish_sql_connection
+    from .models import User, Note
     
-        
+    establish_sql_connection()
+
     # registeres the blueprint
     app.register_blueprint(views, url_prefix="/")
     app.register_blueprint(auth, url_prefix="/")

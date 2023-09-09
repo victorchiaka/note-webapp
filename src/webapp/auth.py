@@ -1,9 +1,11 @@
 from flask import Blueprint, render_template, request, flash
+from .models import User
+
 
 auth = Blueprint("auth", __name__)
 
 @auth.route("/signup", methods=["GET", "POST"])
-def signup():    
+def signup():
     if request.method == "POST":
         data = request.form
         username = data.get("username")
@@ -23,7 +25,9 @@ def signup():
         elif len(password) < 4 or len(confirm_password) < 4:
             flash("Password or Confirm password must be at least 4 characters", "error")
 
-        else: flash("account successfully created", "success")
+        else:
+            # new_user = User(email=email, username=username, id=)
+            flash("account successfully created", "success")
         
     return render_template("signup.html")
 
