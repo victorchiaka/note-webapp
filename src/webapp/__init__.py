@@ -1,12 +1,21 @@
 from dotenv import load_dotenv
 from flask import Flask
+from flask_login import LoginManager
 import random, string, os, psycopg2
 from .views import views
 from .auth import auth
+from .models import User, Note
+from .database import establish_sql_connection, get_user_by_email
 
 load_dotenv()
 
 SECRET_KEY = os.getenv("SECRET_KEY")
+
+login_manager = LoginManager()
+@login_manager.user_loader
+def load_user(email: str):
+    user = get_user_by_email(email)
+    return user
 
 def generate_secret(length):
     return "".join(
@@ -14,15 +23,13 @@ def generate_secret(length):
         )
 
 def initialize_app():
-    
     app = Flask(__name__)
+    login_manager.init_app(app)
+    
     if not SECRET_KEY:
         app.config["SECRET_KEY"] = generate_secret(random.randint(12, 30))
     else:
         app.config["SECRET_KEY"] = SECRET_KEY
-        
-    from .database import establish_sql_connection
-    from .models import User, Note
     
     establish_sql_connection()
 
