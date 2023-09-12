@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS users (
         id varchar(255) PRIMARY KEY,
         username varchar(255),
         email varchar(255),
-        password_hash varchar(255)
+        password_hash varchar(455)
     );
     """)
     
@@ -47,17 +47,25 @@ CREATE TABLE IF NOT EXISTS notes (
     
     return db_connection
 
-def get_user_by_email(email: str):
+def get_user_by_email(email: str) -> User | None:
     cursor = db_connection.cursor()
     
     cursor.execute("SELECT * FROM users WHERE email = %s", (email,))
-    user_data = cursor.fetchone()
-    return user_data
+    data = cursor.fetchone()
+    
+    if data is None:
+        return None
+    
+    user = User(id=data[0], username=data[1], email=data[2], password_hash=(data[3])[2:-1])
+    
+    return user
+
 
 def create_new_user(user: User):
     cursor = db_connection.cursor()
-        
+
     cursor.execute("INSERT INTO users (id, username, email, password_hash) VALUES (%s, %s, %s, %s)",
         (str(user.id), user.username,  user.email, user.password_hash)
     )
+    
     db_connection.commit()

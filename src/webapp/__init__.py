@@ -13,11 +13,11 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 
 login_manager = LoginManager()
 @login_manager.user_loader
-def load_user(email: str):
+def load_user(email: str) -> User:
     user = get_user_by_email(email)
     return user
 
-def generate_secret(length):
+def generate_secret(length) -> str:
     return "".join(
         random.choice(string.ascii_lowercase) for i in range(length)
         )

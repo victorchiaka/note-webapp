@@ -3,18 +3,15 @@ import uuid, bcrypt
 from datetime import datetime
 
 class User(UserMixin):
-    def __init__(self, id, username, email, password_hash) -> None:
+    def __init__(self, id: uuid, username: str, email: str, password_hash: bytes) -> None:
         self.id: uuid = id
         self.username: str = username
         self.email: str = email
         self.password_hash: str = password_hash
 
-    def hash_password(self, password: str):
-        return bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
+    def is_valid_password(self, password: str):
+        return bcrypt.checkpw(password.encode("utf-8"), self.password_hash.encode("utf-8"))
 
-    def verify_password(self, password: str):
-        return bcrypt.checkpw(password.encode("utf-8"), self.hash_password)
-    
 class Note:
     id: uuid
     user_id: uuid
