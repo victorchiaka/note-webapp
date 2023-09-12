@@ -6,41 +6,34 @@
   <link rel="stylesheet" href="../static/dist/output.css">
   <title>{% block title %} {% endblock %}</title>
 </head>
-<body>
-  <header>
-    <nav class="w-[90%] mx-auto my-7 flex justify-between items-center flex-row relative">
-      <div class="text-blue-800 flex justify-start">
-        <h1 class="text-4xl font-bold">web<span class="text-slate-800">notes</span></h1>
+<body class="bg-gray-900 text-white">
+  <header class="bg-gray-800 py-4">
+    <nav class="w-[90%] mx-auto flex justify-between relative items-center">
+      <a href="/" class="text-blue-500 text-3xl font-bold">web<span class="text-gray-300">notes</span></a>
+      <div class="hidden md:flex space-x-4">
+        <a href="/" class="hover:text-gray-300">Home</a>
+        <a href="/signup" class="hover:text-gray-300">Sign Up</a>
+        <a href="/login" class="hover:text-gray-300">Login</a>
+        <a href="/logout" class="bg-blue-800 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out">Logout</a>
       </div>
-
-      <div class="hidden md:flex">
-        <a id="home" class="ml-6 w-[80px] text-center rounded-2xl hover:text-slate-600 mt-1 hover:bg-blue-50" href="/">Home</a>
-        <a id="sign-up" class="ml-6 w-[80px] text-center rounded-2xl hover:text-slate-600 mt-1 hover:bg-blue-50" href="/signup">Sign Up</a>
-        <a id="login" class="ml-6  w-[80px] text-center rounded-2xl hover:text-slate-600 mt-1 hover:bg-blue-50" href="/login">Login</a>
-        <button class="bg-blue-800 text-white w-[7rem] h-[2.2rem] ml-6 rounded-2xl">
-          <a id="logout" href="/logout">Logout</a>
-        </button>
-      </div>
-      
-      <button id="hamburger-toggler" class="hamburger-button absolute top-3 right-0 md:hidden">
+      <button id="hamburger-toggler" class="hamburger-button absolute top-2 right-0 md:hidden">
         <span class="hamburger-dash"></span>
         <span class="hamburger-dash"></span>
         <span class="hamburger-dash"></span>
       </button>
-
     </nav>
     <div class="md:hidden">
-      <div id="mobile-nav" class="mt-3 absolute left-6 right-6 w-auto text-slate-800 font-bold items-center shadow-md bg-gray-100 z-10 h-fit rounded-sm hidden">
-        <a id="home" class="mt-7 moile-nav-items" href="/">Home</a>
-        <a id="sign-up" class="mt-7 moile-nav-items" href="/signup">Sign Up</a>
-        <a id="login" class="mt-7 moile-nav-items" href="/login">login</a>
-        <a id="logout" class="my-7 moile-nav-items" href="/logout">Logout</a>
+      <div id="mobile-nav" class="mt-3 bg-gray-800 absolute top-16 left-6 right-6 w-auto text-gray-800 font-bold items-center shadow-md z-10 h-fit rounded-sm hidden">
+        <a href="/" class="moile-nav-items block my-4 text-gray-300 hover:text-blue-500">Home</a>
+        <a href="/signup" class="moile-nav-items block my-4 text-gray-300 hover:text-blue-500">Sign Up</a>
+        <a href="/login" class="moile-nav-items block my-4 text-gray-300 hover:text-blue-500">Login</a>
+        <a href="/logout" class="moile-nav-items block my-4 text-blue-800 hover:text-blue-500">Logout</a>
       </div>
     </div>
   </header>
 
-  <!--message flashing-->
-  <div class="w-[90%] mx-auto">
+  <!-- Message Flashing (Updated) -->
+  <div class="w-[90%] mx-auto relative">
     {% with flashed_messages = get_flashed_messages(with_categories=true) %}
       {% if flashed_messages %}
         {% for category, message in flashed_messages %}
@@ -75,7 +68,8 @@
       {% endif %}
     {% endwith %}
   </div>
-  <div class="mt-20 text-slate-800">
+
+  <div class="mt-20 text-gray-300">
     {% block content %}
     {% endblock %}
   </div>

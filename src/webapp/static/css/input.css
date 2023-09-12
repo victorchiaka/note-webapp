@@ -4,18 +4,18 @@
 
 
 @layer components {
-  /* .alert {
-    @apply flex flex-col p-4 pt-2 border-l-4;
-  } */
   .alert {
-    @apply flex flex-col p-4 pt-2 md:border-l-4;
+    @apply w-[300px] md:w-[400px] absolute right-0 mt-4 rounded-lg shadow-lg flex flex-col px-3 py-1;
   }
+  
   .alert-title {
     @apply font-semibold italic text-lg flex justify-between;
   }
+  
   .alert-content {
-    @apply leading-tight text-sm;
+    @apply text-sm;
   }
+  
 
   .alert-info {
     @apply bg-blue-100 text-blue-800 border-blue-500;
@@ -69,14 +69,14 @@
 .hamburger-button {
   display: flex;
   flex-direction: column;
-  width: 38px;
+  width: 34px;
   cursor: pointer;
 }
 
 .hamburger-dash {
   height: 3px;
   width: 100%;
-  background-color: #282829;
+  background-color: #ffffffe7;
   transition: all 1s ease-out;
 }
 
