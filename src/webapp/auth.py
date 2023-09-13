@@ -36,7 +36,6 @@ def signup():
             flash("Password or Confirm password must be at least 4 characters", "error")
 
         else:
-            # salt: bytes = bcrypt.gensalt()
             new_user: User = User(
                 id=uuid.uuid4(),
                 username=username,
@@ -72,7 +71,7 @@ def login():
             else:
                 login_user(user, remember=True)
                 flash("login successful", "success")
-                # return redirect(url_for("views.home"))
+                return redirect(url_for("views.home", name=username))
                 
     return render_template("login.html")
 

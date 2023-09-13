@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="w-[90%] mx-auto flex flex-col justify-center items-center">
+    <div class="text-center my-4 text-balance">
+      {% if name %}
+      <h1 class="text-3xl font-semibold">Welcome back, {{ name }}!</h1>
+      {% else %}
+      <h1 class="text-3xl font-semibold">Welcome back!</h1>
+      {% endif %}
+      <h1 class="text-5xl font-bold md:text-6xl">Start taking your notes right away!</h1>
+    </div>
+    <div class="my-6">
+      <form action="/addnote" method="post" class="flex flex-col">
+        <input type="text" name="title" id="title" placeholder="Note Title" class="border rounded-md p-3 mb-4 text-lg">
+        <textarea name="content" id="content" placeholder="Content..." cols="30" rows="10" class="bg-gray-100 rounded-md p-3 text-lg"></textarea>
+        <button type="submit" class="bg-blue-500 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out mt-4 text-xl">
+          Add Note
+        </button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
