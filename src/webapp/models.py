@@ -8,6 +8,10 @@ class User(UserMixin):
         self.username: str = username
         self.email: str = email
         self.password_hash: str = password_hash
+    
+    @classmethod
+    def get_instance(instance, id: uuid, username: str, email: str, password_hash: bytes) -> 'User':
+        return instance(id, username, email, password_hash)
 
     def is_valid_password(self, password: str):
         return bcrypt.checkpw(password.encode("utf-8"), self.password_hash.encode("utf-8"))

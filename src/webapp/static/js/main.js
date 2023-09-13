@@ -25,8 +25,8 @@ document.addEventListener("DOMContentLoaded", function () {
     flashObject.style.transition = "opacity 1.2s";
     setTimeout(() => {
       flashObject.style.display = "none";
-    }, 3000);
-  }, 4000);
+    }, 2000);
+  }, 3000);
   document.addEventListener("DOMContentLoaded", function () {
   });
   

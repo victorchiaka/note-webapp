@@ -1,15 +1,11 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
-from flask_login import login_user, login_required, logout_user, LoginManager
+from flask_login import current_user, login_user, login_required, logout_user, LoginManager
 from .models import User
 import uuid, bcrypt
 from .database import get_user_by_email, create_new_user
 from .utils import is_email_taken
 
-
 auth = Blueprint("auth", __name__)
-
-login_manager = LoginManager()
-
 
 @auth.route("/signup", methods=["GET", "POST"])
 def signup():
@@ -49,9 +45,9 @@ def signup():
 
             flash("account successfully created", "success")
             
-            return redirect(url_for("views.home", name=username))
+            return redirect(url_for("views.note", name=username))
 
-    return render_template("signup.html")
+    return render_template("signup.html", user=current_user)
 
 
 @auth.route("/login", methods=["GET", "POST"])
@@ -75,10 +71,12 @@ def login():
                 flash("login successful", "success")
                 return redirect(url_for("views.home", name=username))
                 
-    return render_template("login.html")
+    return render_template("login.html", user=current_user)
 
 
 @auth.route("/logout")
+@login_required
 def logout():
     logout_user()
-    return redirect(url_for("views.index"))
+    flash("successfully logged out", "success")
+    return redirect(url_for("auth.login"))

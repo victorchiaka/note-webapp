@@ -55,8 +55,23 @@ def get_user_by_email(email: str) -> User | None:
     
     if data is None:
         return None
+    user_id, username, email, hashed_password = data
     
-    user = User(id=data[0], username=data[1], email=data[2], password_hash=(data[3])[2:-1])
+    user = User.get_instance(id=user_id, username=username, email=email, password_hash=hashed_password[2:-1])
+    
+    return user
+
+def get_user_by_id(id: bytes) -> User | None:
+    cursor = db_connection.cursor()
+    
+    cursor.execute("SELECT * FROM users WHERE id = %s", (id,))
+    data = cursor.fetchone()
+    
+    if data is None:
+        return None
+    user_id, username, email, hashed_password = data
+    
+    user = User.get_instance(id=user_id, username=username, email=email, password_hash=hashed_password[2:-1])
     
     return user
 
