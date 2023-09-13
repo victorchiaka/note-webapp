@@ -48,6 +48,8 @@ def signup():
             login_user(new_user, remember=True)
 
             flash("account successfully created", "success")
+            
+            return redirect(url_for("views.home", name=username))
 
     return render_template("signup.html")
 
@@ -78,4 +80,5 @@ def login():
 
 @auth.route("/logout")
 def logout():
-    return ""
+    logout_user()
+    return redirect(url_for("views.index"))
