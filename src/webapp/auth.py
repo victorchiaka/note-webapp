@@ -44,7 +44,7 @@ def signup():
             login_user(new_user, remember=True)
 
             flash("account successfully created", "success")
-            
+
             return redirect(url_for("views.note", name=username))
 
     return render_template("signup.html", user=current_user)
@@ -56,9 +56,9 @@ def login():
         username: str = request.form.get("username")
         email: str = request.form.get("email")
         password: str = request.form.get("password")
-        
+
         user = get_user_by_email(email)
-        
+
         if not user:
             flash("user with this email does not exist", "error")
         else:
@@ -70,7 +70,7 @@ def login():
                 login_user(user, remember=True)
                 flash("login successful", "success")
                 return redirect(url_for("views.home", name=username))
-                
+
     return render_template("login.html", user=current_user)
 
 

@@ -8,16 +8,71 @@
       {% else %}
       <h1 class="text-3xl font-semibold">Welcome back!</h1>
       {% endif %}
-      <h1 class="text-5xl font-bold md:text-6xl">Start taking your notes right away!</h1>
+      <!-- <h1 class="text-5xl font-bold md:text-6xl">Start taking your notes right away!</h1> -->
     </div>
-    <div class="my-6">
-      <form action="/addnote" method="post" class="flex flex-col">
-        <input type="text" name="title" id="title" placeholder="Note Title" class="border rounded-md p-3 mb-4 text-lg">
-        <textarea name="content" id="content" placeholder="Content..." cols="30" rows="10" class="bg-gray-100 rounded-md p-3 text-lg"></textarea>
-        <button type="submit" class="bg-blue-500 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out mt-4 text-xl">
-          Add Note
-        </button>
-      </form>
+
+    <div class="w-full flex justify-between flex-col md:flex-row">
+
+      <div class="md:w-[45%] flex flex-col justify-center">
+        <ul class="">
+          <li class="bg-gray-800 mt-2 rounded-lg md:rounded-none">
+            <div id="note" class="py-2 px-4">
+              <h3 class="text-lg font-semibold">Note 1</h3>
+              <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+                Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, 
+                dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue,
+                euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi,
+                non fermentum.</p>
+            </div>
+          <li>
+          <li class="bg-gray-800 mt-2 rounded-lg md:rounded-none">
+            <div id="note" class="py-2 px-4">
+              <h3 class="text-lg font-semibold">Note 1</h3>
+              <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+                Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, 
+                dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue,
+                euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi,
+                non fermentum.</p>
+            </div>
+          <li>
+          <li class="bg-gray-800 mt-2 rounded-lg md:rounded-none">
+            <div id="note" class="py-2 px-4">
+              <h3 class="text-lg font-semibold">Note 1</h3>
+              <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+                Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, 
+                dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue,
+                euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi,
+                non fermentum.</p>
+            </div>
+          <li>
+          <li class="bg-gray-800 mt-2 rounded-lg md:rounded-none">
+            <div id="note" class="py-2 px-4">
+              <h3 class="text-lg font-semibold">Note 1</h3>
+              <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+                Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, 
+                dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue,
+                euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi,
+                non fermentum.</p>
+            </div>
+          <li>
+        <ul>
+      </div>
+
+      <div class="w-[45%] hidden flex-col items-center md:flex">
+        <div class="">
+          <form action="/addnote" method="post" class="flex flex-col">
+            <input type="text" name="title" id="title" placeholder="Note Title" class="border rounded-md p-3 mb-4 text-lg">
+            <textarea name="content" id="content" placeholder="Content..." cols="30" rows="10" class="bg-gray-100 rounded-md p-3 text-lg"></textarea>
+            <button type="submit" class="bg-blue-500 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out mt-4 text-xl">
+              Create Note
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <button class="self-center w-36 bg-blue-500 text-white font-semibold py-3 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out mt-4 text-xl md:hidden">
+        Add Note
+      </button>
     </div>
   </div>
 {% endblock %}
