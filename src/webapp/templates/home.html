@@ -1,5 +1,8 @@
 {% extends "base.html" %}
-
+<!DOCTYPE html>
+<html>
+  {% block title %} WebNotes - Notes {% endblock %}
+</html>
 {% block content %}
   <div class="w-[90%] mx-auto flex flex-col justify-center items-center">
     <div class="text-center my-4 text-balance">
@@ -8,7 +11,6 @@
       {% else %}
       <h1 class="text-3xl font-semibold">Welcome back!</h1>
       {% endif %}
-      <!-- <h1 class="text-5xl font-bold md:text-6xl">Start taking your notes right away!</h1> -->
     </div>
 
     <div class="w-full relative flex justify-between flex-col md:flex-row">
@@ -20,7 +22,7 @@
               <div class="flex justify-between py-2">
                 <h3 class="text-lg font-semibold">Note 1</h3>
                 <div class="relative">
-                  <button id="three-dots-toggle" class="w-7 h-7">
+                  <button title="options" id="three-dots-toggle" class="w-6 h-6 border-2 border-gray-600 rounded-full">
                     <img src="../static/images/vertical-dot.svg">
                   </button>
                   <div id="three-dots-nav" class="bg-gray-900 w-[85px] justify-between items-center py-1 px-2 rounded-lg absolute right-0 bg-opacity-95 hidden">
@@ -42,15 +44,15 @@
       </div>
 
       <!-- mobile create note form-->
-      <div class="mt-6 bg-gray-800 p-6 border-2 border-gray-500 rounded-lg shadow-lg absolute left-7 right-7 hidden">
-        <form action="/addnote" method="post" class="flex flex-col">
+      <div id="mobile-note-form" class="mt-6 bg-gray-800 p-6 border-2 border-gray-600 rounded-lg shadow-lg absolute left-7 right-7 hidden">
+        <form action="/notes" method="POST" class="flex flex-col">
           <input type="text" name="title" id="title" placeholder="Note Title" class="border rounded-md p-3 mb-4 text-lg">
           <textarea name="content" id="content" placeholder="Content..." cols="30" rows="10" class="bg-gray-100 rounded-md p-3 text-lg"></textarea>
           <div class="self-center space-x-4">
-            <button type="button" class="w-[100px] bg-red-500 text-white font-semibold py-3 rounded-lg hover:bg-red-600 transition duration-300 ease-in-out mt-4 text-xl">
+            <button id="cancle-add-note" type="button" class="w-[100px] bg-red-500 text-white font-semibold py-3 rounded-lg hover:bg-red-600 transition duration-300 ease-in-out mt-4 text-xl">
               Cancel
             </button>
-            <button type="submit" class="w-[100px] bg-blue-500 text-white font-semibold py-3 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out mt-4 text-xl">
+            <button id="create-note" type="submit" class="w-[100px] bg-blue-500 text-white font-semibold py-3 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out mt-4 text-xl">
               Create
             </button>
           </div>
@@ -67,7 +69,7 @@
         </form>
       </div>
 
-      <button class="self-center w-36 bg-blue-500 text-white font-semibold py-3 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out mt-4 text-xl md:hidden">
+      <button id="add-note-button" class="self-center w-36 bg-blue-500 text-white font-semibold py-3 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out mt-4 text-xl md:hidden">
         Add Note
       </button>
     </div>

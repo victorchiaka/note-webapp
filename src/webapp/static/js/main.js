@@ -1,18 +1,31 @@
 const mobileNavbar = document.getElementById("mobile-nav");
 const hamburgerToggler = document.getElementById("hamburger-toggler");
+const threeDotsNavToggler = document.getElementById("three-dots-toggle");
+const addNoteButton = document.getElementById("add-note-button");
+const cancelAddNoteButton = document.getElementById("cancle-add-note");
+const mobileNoteForm = document.getElementById("mobile-note-form");
+const threeDotsNav = document.getElementById("three-dots-nav");
+const createNoteButton = document.getElementById("create-note");
+
+function toggleAddNoteForm() {
+  mobileNoteForm.classList.toggle("hidden");
+}
 
 hamburgerToggler.addEventListener("click", () => {
   hamburgerToggler.classList.toggle("open-toggle");
   mobileNavbar.classList.toggle("open-mobile-nav");
 });
 
-const threeDotsNav = document.getElementById("three-dots-nav");
-const threeDotsNavToggler = document.getElementById("three-dots-toggle");
-
 threeDotsNavToggler.addEventListener("click", () => {
   threeDotsNav.classList.toggle("flex");
   threeDotsNav.classList.toggle("hidden");
 });
+
+createNoteButton.addEventListener("click", toggleAddNoteForm)
+
+addNoteButton.addEventListener("click", toggleAddNoteForm);
+
+cancelAddNoteButton.addEventListener("click", toggleAddNoteForm);
 
 document.addEventListener("DOMContentLoaded", function () {
 
