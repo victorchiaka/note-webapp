@@ -11,43 +11,26 @@
       <!-- <h1 class="text-5xl font-bold md:text-6xl">Start taking your notes right away!</h1> -->
     </div>
 
-    <div class="w-full flex justify-between flex-col md:flex-row">
+    <div class="w-full relative flex justify-between flex-col md:flex-row">
 
-      <div class="md:w-[45%] flex flex-col justify-center">
+      <div class="md:w-[45%] flex flex-col">
         <ul class="">
           <li class="bg-gray-800 mt-2 rounded-lg md:rounded-none">
             <div id="note" class="py-2 px-4">
-              <h3 class="text-lg font-semibold">Note 1</h3>
-              <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-                Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, 
-                dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue,
-                euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi,
-                non fermentum.</p>
-            </div>
-          <li>
-          <li class="bg-gray-800 mt-2 rounded-lg md:rounded-none">
-            <div id="note" class="py-2 px-4">
-              <h3 class="text-lg font-semibold">Note 1</h3>
-              <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-                Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, 
-                dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue,
-                euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi,
-                non fermentum.</p>
-            </div>
-          <li>
-          <li class="bg-gray-800 mt-2 rounded-lg md:rounded-none">
-            <div id="note" class="py-2 px-4">
-              <h3 class="text-lg font-semibold">Note 1</h3>
-              <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-                Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, 
-                dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue,
-                euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi,
-                non fermentum.</p>
-            </div>
-          <li>
-          <li class="bg-gray-800 mt-2 rounded-lg md:rounded-none">
-            <div id="note" class="py-2 px-4">
-              <h3 class="text-lg font-semibold">Note 1</h3>
+              <div class="flex justify-between py-2">
+                <h3 class="text-lg font-semibold">Note 1</h3>
+                <div class="relative">
+                  <button id="three-dots-toggle" class="w-7 h-7">
+                    <img src="../static/images/vertical-dot.svg">
+                  </button>
+                  <div id="three-dots-nav" class="bg-gray-900 w-[85px] justify-between items-center py-1 px-2 rounded-lg absolute right-0 bg-opacity-95 hidden">
+                    <button title="edit note" class="text-green-400 font-semibold">EDIT</button>
+                    <button title="delete note" class="w-5 h-5">
+                      <img src="../static/images/rubbish-bin.svg">
+                    </button>
+                  </div>
+                </div>
+              </div>
               <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
                 Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, 
                 dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue,
@@ -58,16 +41,30 @@
         <ul>
       </div>
 
-      <div class="w-[45%] hidden flex-col items-center md:flex">
-        <div class="">
-          <form action="/addnote" method="post" class="flex flex-col">
-            <input type="text" name="title" id="title" placeholder="Note Title" class="border rounded-md p-3 mb-4 text-lg">
-            <textarea name="content" id="content" placeholder="Content..." cols="30" rows="10" class="bg-gray-100 rounded-md p-3 text-lg"></textarea>
-            <button type="submit" class="bg-blue-500 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out mt-4 text-xl">
-              Create Note
+      <!-- mobile create note form-->
+      <div class="mt-6 bg-gray-800 p-6 border-2 border-gray-500 rounded-lg shadow-lg absolute left-7 right-7 hidden">
+        <form action="/addnote" method="post" class="flex flex-col">
+          <input type="text" name="title" id="title" placeholder="Note Title" class="border rounded-md p-3 mb-4 text-lg">
+          <textarea name="content" id="content" placeholder="Content..." cols="30" rows="10" class="bg-gray-100 rounded-md p-3 text-lg"></textarea>
+          <div class="self-center space-x-4">
+            <button type="button" class="w-[100px] bg-red-500 text-white font-semibold py-3 rounded-lg hover:bg-red-600 transition duration-300 ease-in-out mt-4 text-xl">
+              Cancel
             </button>
-          </form>
-        </div>
+            <button type="submit" class="w-[100px] bg-blue-500 text-white font-semibold py-3 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out mt-4 text-xl">
+              Create
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="w-[45%] hidden flex-col md:flex">
+        <form action="/addnote" method="post" class="flex flex-col w-[100%]">
+          <input type="text" name="title" id="title" placeholder="Note Title" class="border rounded-md p-3 mb-4 text-lg w-[95%] mx-auto">
+          <textarea name="content" id="content" placeholder="Content..." cols="30" rows="13" class="bg-gray-100 rounded-md p-3 text-lg w-[95%] mx-auto"></textarea>
+          <button type="submit" class="w-48 mx-auto bg-blue-500 text-white font-semibold py-3 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out mt-4 text-xl">
+            Create Note
+          </button>
+        </form>
       </div>
 
       <button class="self-center w-36 bg-blue-500 text-white font-semibold py-3 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out mt-4 text-xl md:hidden">
