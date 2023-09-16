@@ -4,11 +4,22 @@ const threeDotsNavToggler = document.getElementById("three-dots-toggle");
 const addNoteButton = document.getElementById("add-note-button");
 const cancelAddNoteButton = document.getElementById("cancle-add-note");
 const mobileNoteForm = document.getElementById("mobile-note-form");
-const threeDotsNav = document.getElementById("three-dots-nav");
 const createNoteButton = document.getElementById("create-note");
+const threeDotsNav = document.getElementById("three-dots-nav");
+
+// const deleteNoteButton = document.getElementById("delete-note-button");
 
 function toggleAddNoteForm() {
   mobileNoteForm.classList.toggle("hidden");
+}
+
+function deleteNote(noteId) {
+  fetch("/home", {
+    method: "DELETE",
+    body: JSON.stringify({ noteId: noteId})
+  }).then ((_res) => {
+    window.location.href = "/home";
+  });
 }
 
 hamburgerToggler.addEventListener("click", () => {
@@ -21,14 +32,15 @@ threeDotsNavToggler.addEventListener("click", () => {
   threeDotsNav.classList.toggle("hidden");
 });
 
-createNoteButton.addEventListener("click", toggleAddNoteForm)
+createNoteButton.addEventListener("click", toggleAddNoteForm);
 
 addNoteButton.addEventListener("click", toggleAddNoteForm);
 
 cancelAddNoteButton.addEventListener("click", toggleAddNoteForm);
 
-document.addEventListener("DOMContentLoaded", function () {
+// deleteNoteButton.addEventListener("click", deleteNote);
 
+document.addEventListener("DOMContentLoaded", function () {
   const flashDismiss = document.getElementById("flash-dismiss");
   const flashObject = document.getElementById("flash-object");
 
@@ -47,6 +59,5 @@ document.addEventListener("DOMContentLoaded", function () {
       flashObject.style.display = "none";
     }, 2000);
   }, 3000);
-  document.addEventListener("DOMContentLoaded", function () {
-  });
 });
+
