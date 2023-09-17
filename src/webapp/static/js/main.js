@@ -22,8 +22,8 @@ function toggleAddNoteForm() {
 function deleteNote(noteId) {
   fetch("/home", {
     method: "DELETE",
-    body: JSON.stringify({ noteId: noteId})
-  }).then ((_res) => {
+    body: JSON.stringify({ noteId: noteId }),
+  }).then((_res) => {
     window.location.href = "/home";
   });
 }
