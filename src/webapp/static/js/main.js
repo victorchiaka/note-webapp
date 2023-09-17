@@ -1,19 +1,29 @@
 const mobileNavbar = document.getElementById("mobile-nav");
 const hamburgerToggler = document.getElementById("hamburger-toggler");
-const threeDotsNavToggler = document.getElementById("three-dots-toggle");
 const addNoteButton = document.getElementById("add-note-button");
 const cancelAddNoteButton = document.getElementById("cancle-add-note");
 const mobileNoteForm = document.getElementById("mobile-note-form");
 const createNoteButton = document.getElementById("create-note");
-const threeDotsNav = document.getElementById("three-dots-nav");
 
-// const deleteNoteButton = document.getElementById("delete-note-button");
+
+const deleteNoteButton = document.querySelectorAll(".delete-note-button");
+
+const threeDotsNavTogglers = document.querySelectorAll(".three-dots-toggler");
+const threeDotsNav = document.querySelectorAll(".three-dots-nav");
+
+for (let i = 0; i < threeDotsNavTogglers.length; i++) {
+  threeDotsNavTogglers[i].addEventListener("click", () => {
+    threeDotsNav[i].classList.toggle("hidden");
+    threeDotsNav[i].classList.toggle("flex");
+  });
+}
 
 function toggleAddNoteForm() {
   mobileNoteForm.classList.toggle("hidden");
 }
 
 function deleteNote(noteId) {
+  console.log("reached");
   fetch("/home", {
     method: "DELETE",
     body: JSON.stringify({ noteId: noteId})
@@ -27,18 +37,13 @@ hamburgerToggler.addEventListener("click", () => {
   mobileNavbar.classList.toggle("open-mobile-nav");
 });
 
-threeDotsNavToggler.addEventListener("click", () => {
-  threeDotsNav.classList.toggle("flex");
-  threeDotsNav.classList.toggle("hidden");
-});
-
 createNoteButton.addEventListener("click", toggleAddNoteForm);
 
 addNoteButton.addEventListener("click", toggleAddNoteForm);
 
 cancelAddNoteButton.addEventListener("click", toggleAddNoteForm);
 
-// deleteNoteButton.addEventListener("click", deleteNote);
+deleteNoteButton.addEventListener("click", deleteNote);
 
 document.addEventListener("DOMContentLoaded", function () {
   const flashDismiss = document.getElementById("flash-dismiss");
@@ -60,4 +65,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 2000);
   }, 3000);
 });
-

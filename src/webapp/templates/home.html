@@ -24,12 +24,12 @@
                   <div class="flex justify-between py-2">
                     <h3 class="text-lg font-semibold">{{ note.title }}</h3>
                     <div class="relative">
-                      <button title="options" id="three-dots-toggle" class="w-6 h-6 border-2 border-gray-600 rounded-full">
+                      <button title="options" class="three-dots-toggler w-6 h-6 border-2 border-gray-600 rounded-full">
                         <img src="../static/images/vertical-dot.svg">
                       </button>
-                      <div id="three-dots-nav" class="bg-gray-900 w-[85px] justify-between items-center py-1 px-2 rounded-lg absolute right-0 bg-opacity-95 hidden">
+                      <div id="three-dots-nav" class="three-dots-nav bg-gray-900 w-[85px] justify-between items-center py-1 px-2 rounded-lg absolute right-0 bg-opacity-95 hidden">
                         <button title="edit note" class="text-green-400 font-semibold">EDIT</button>
-                        <button title="delete-note-button" onClick="deleteNote({{ note.id }})" class="w-5 h-5">
+                        <button title="delete-note-button" onClick="deleteNote({{ note.id }})" class="delete-note-button w-5 h-5">
                           <img src="../static/images/rubbish-bin.svg">
                         </button>
                       </div>
@@ -39,12 +39,11 @@
                 </div>
               <li>
             {% endfor %}
-          <ul>
+          </ul>
         </div>
         {% else %}
           <h3 title="add a note to not show this again" class="text-xl text-white text-center">No notes yet</h3>
       {% endif %}
-
 
       <!-- mobile create note form-->
       <div id="mobile-note-form" class="mt-6 p-6 border-2 border-gray-600 rounded-lg shadow-lg absolute left-7 right-7 hidden md:hidden">
