@@ -127,6 +127,17 @@ def get_all_notes(user_id: uuid) -> List[Note]:
 
 def delete_note_by_id(id: uuid):
     cursor = db_connection.cursor()
-    cursor.execute("SELECT FROM notes * where id = %s;", (str(id),))
-    
+    cursor.execute("DELETE FROM notes * WHERE id = %s;", (str(id),))
+
     db_connection.commit()
+
+
+def get_note_by_id(id: uuid):
+    cursor = db_connection.cursor()
+    cursor.execute("SELECT * FROM notes WHERE id = %s;", (str(id),))
+
+    id, user_id, title, content, created_at = cursor.fetchone()
+
+    note: Note = Note(id, user_id, title, content, created_at)
+
+    return note

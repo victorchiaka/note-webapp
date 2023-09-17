@@ -5,9 +5,6 @@ const cancelAddNoteButton = document.getElementById("cancle-add-note");
 const mobileNoteForm = document.getElementById("mobile-note-form");
 const createNoteButton = document.getElementById("create-note");
 
-
-const deleteNoteButton = document.querySelectorAll(".delete-note-button");
-
 const threeDotsNavTogglers = document.querySelectorAll(".three-dots-toggler");
 const threeDotsNav = document.querySelectorAll(".three-dots-nav");
 
@@ -23,7 +20,6 @@ function toggleAddNoteForm() {
 }
 
 function deleteNote(noteId) {
-  console.log("reached");
   fetch("/home", {
     method: "DELETE",
     body: JSON.stringify({ noteId: noteId})
@@ -42,8 +38,6 @@ createNoteButton.addEventListener("click", toggleAddNoteForm);
 addNoteButton.addEventListener("click", toggleAddNoteForm);
 
 cancelAddNoteButton.addEventListener("click", toggleAddNoteForm);
-
-deleteNoteButton.addEventListener("click", deleteNote);
 
 document.addEventListener("DOMContentLoaded", function () {
   const flashDismiss = document.getElementById("flash-dismiss");
