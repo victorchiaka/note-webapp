@@ -8,7 +8,7 @@ const createNoteButton = document.getElementById("create-note");
 const threeDotsNavTogglers = document.querySelectorAll(".three-dots-toggler");
 const threeDotsNav = document.querySelectorAll(".three-dots-nav");
 
-threeDotsNavTogglers.forEach((threeDotsNavToggler, index, array) => {
+threeDotsNavTogglers.forEach((threeDotsNavToggler, index) => {
   threeDotsNavToggler.addEventListener("click", () => {
     threeDotsNav[index].classList.toggle("flex");
     threeDotsNav[index].classList.toggle("hidden");
