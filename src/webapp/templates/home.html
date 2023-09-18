@@ -27,7 +27,7 @@
                       <button title="options" class="three-dots-toggler w-6 h-6 border-2 border-gray-600 rounded-full">
                         <img src="../static/images/vertical-dot.svg">
                       </button>
-                      <div id="three-dots-nav" class="three-dots-nav bg-gray-900 w-[85px] justify-between items-center py-1 px-2 rounded-lg absolute right-0 bg-opacity-95 hidden">
+                      <div class="three-dots-nav bg-gray-900 w-[85px] justify-between items-center py-1 px-2 rounded-lg absolute right-0 bg-opacity-95 hidden">
                         <button title="edit note" class="text-green-400 font-semibold">EDIT</button>
                         <button title="delete-note-button" onClick="deleteNote('{{ note.id }}')" class="delete-note-button w-5 h-5">
                           <img src="../static/images/rubbish-bin.svg">
@@ -46,7 +46,7 @@
       {% endif %}
 
       <!-- mobile create note form-->
-      <div id="mobile-note-form" class="mt-6 p-6 border-2 border-gray-600 rounded-lg shadow-lg absolute left-7 right-7 hidden md:hidden">
+      <div id="mobile-note-form" class="mt-6 p-6 bg-gray-800 border-2 border-gray-600 rounded-lg shadow-lg absolute left-7 right-7 hidden md:hidden">
         <form action="/home" method="POST" class="text-white-900 flex flex-col">
           <input type="text" name="title" id="title" placeholder="Note Title" class="border rounded-md p-3 mb-4 text-sm focus:text-gray-800">
           <textarea name="content" id="content" placeholder="Content..." cols="30" rows="10" class="bg-gray-100 rounded-md p-3 text-sm focus:text-gray-800"></textarea>

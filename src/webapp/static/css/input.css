@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -64,6 +66,10 @@
   .alert-success-content {
     @apply text-green-800;
   }
+}
+
+* {
+  font-family: 'Krona One', sans-serif;
 }
 
 .hamburger-button {
