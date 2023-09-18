@@ -10,7 +10,7 @@ app = initialize_app()
 
 if IS_DEVELOPMENT:
     if __name__ == "__main__":
-        app.run(debug=False)
+        app.run(debug=True)
 else:
     if __name__ == "__main__":
-        app.run()
+        app.run(debug=False)
