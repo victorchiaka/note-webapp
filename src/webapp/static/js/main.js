@@ -8,12 +8,12 @@ const createNoteButton = document.getElementById("create-note");
 const threeDotsNavTogglers = document.querySelectorAll(".three-dots-toggler");
 const threeDotsNav = document.querySelectorAll(".three-dots-nav");
 
-for (let i = 0; i < threeDotsNavTogglers.length; i++) {
-  threeDotsNavTogglers[i].addEventListener("click", () => {
-    threeDotsNav[i].classList.toggle("hidden");
-    threeDotsNav[i].classList.toggle("flex");
+threeDotsNavTogglers.forEach((threeDotsNavToggler, index, array) => {
+  threeDotsNavToggler.addEventListener("click", () => {
+    threeDotsNav[index].classList.toggle("flex");
+    threeDotsNav[index].classList.toggle("hidden");
   });
-}
+});
 
 function toggleAddNoteForm() {
   mobileNoteForm.classList.toggle("hidden");
