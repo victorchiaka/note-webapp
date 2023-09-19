@@ -12,4 +12,5 @@ packaging==23.1
 psycopg2==2.9.7
 # python-dotenv==1.0.0
 python-dotenv==0.21.1
-Werkzeug==2.3.7
+# Werkzeug==2.3.7
+Werkzeug==2.3.3
