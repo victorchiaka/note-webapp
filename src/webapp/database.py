@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 from .models import Note, User
-from typing import List, Tuple
+from typing import List, Tuple, Optional
 import os, psycopg2, uuid
 from datetime import datetime
 
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS notes (
     return db_connection
 
 
-def get_user_by_email(email: str) -> User | None:
+def get_user_by_email(email: str) -> Optional[User]:
     cursor = db_connection.cursor()
 
     cursor.execute("SELECT * FROM users WHERE email = %s;", (email,))
@@ -68,7 +68,7 @@ def get_user_by_email(email: str) -> User | None:
     return user
 
 
-def get_user_by_id(id: bytes) -> User | None:
+def get_user_by_id(id: bytes) -> Optional[User]:
     cursor = db_connection.cursor()
 
     cursor.execute("SELECT * FROM users WHERE id = %s;", (id,))
