@@ -19,6 +19,17 @@ function toggleAddNoteForm() {
   mobileNoteForm.classList.toggle("hidden");
 }
 
+function triggerDeleteAccount(userId) {
+  if (window.confirm("Sure to delete account")) {
+    fetch("/delete_account", {
+      method: "DELETE",
+      body: JSON.stringify({ userId: userId }),
+    }).then((_res) => {
+      window.location.href = "/";
+    });
+  }
+}
+
 function deleteNote(noteId) {
   fetch("/home", {
     method: "DELETE",

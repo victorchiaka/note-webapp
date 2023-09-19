@@ -10,18 +10,22 @@
   <header class="bg-gray-800 py-4">
     <nav class="w-[90%] mx-auto flex justify-between relative items-center">
       <a href="/" class="text-blue-500 text-3xl font-bold">web<span class="text-gray-300">notes</span></a>
-      <div class="hidden md:flex space-x-4">
-        {% if user.is_authenticated %}
-          <a href="/" class="hover:text-gray-300">Home</a>
-          <a href="/home" class="hover:text-gray-300">Notes</a>
-          <a href="/logout" class="bg-blue-800 text-white py-2 px-4 rounded-3xl hover:bg-blue-700 transition duration-300 ease-in-out">Logout</a>
-        {% else %}
-          <a href="/" class="hover:text-gray-300">Home</a>
-          <a href="/signup" class="hover:text-gray-300">Sign Up</a>
-          <a href="/login" class="hover:text-gray-300">Login</a>
-          <a href="/logout" class="bg-blue-800 text-white py-2 px-4 rounded-3xl hover:bg-blue-700 transition duration-300 ease-in-out">Logout</a>
-        {% endif %}
-      </div>
+      {% if user %}
+        <div class="hidden md:flex space-x-4">
+          <!-- <p>{{ user.id }}</p> -->
+          {% if user.is_authenticated %}
+            <a href="/" class="hover:text-gray-300">Home</a>
+            <a href="/home" class="hover:text-gray-300">Notes</a>
+            <a href="/logout" class="bg-blue-800 text-white py-2 px-4 rounded-3xl hover:bg-blue-700 transition duration-300 ease-in-out">Logout</a>
+            <button onClick="triggerDeleteAccount('{{ user.id }}')" class="bg-red-800 text-white py-2 px-4 rounded-3xl hover:bg-red-700 transition duration-300 ease-in-out">Delete Account</button>
+          {% else %}
+            <a href="/" class="hover:text-gray-300">Home</a>
+            <a href="/signup" class="hover:text-gray-300">Sign Up</a>
+            <a href="/login" class="hover:text-gray-300">Login</a>
+            <a href="/logout" class="bg-blue-800 text-white py-2 px-4 rounded-3xl hover:bg-blue-700 transition duration-300 ease-in-out">Logout</a>
+          {% endif %}
+        </div>
+      {% endif %}
     
       <button title="navigation" id="hamburger-toggler" class="hamburger-button absolute top-2 right-0 md:hidden">
         <span class="hamburger-dash"></span>
@@ -31,11 +35,13 @@
     </nav>
     
     <div class="md:hidden">
+      {% if user %}
       <div id="mobile-nav" class="mt-3 bg-gray-800 absolute top-16 left-6 right-6 w-auto text-gray-800 font-bold items-center shadow-md z-10 h-fit rounded-sm hidden">
         {% if user.is_authenticated %}
           <a href="/" class="moile-nav-items block my-4 text-gray-300 hover:text-blue-500">Home</a>
           <a href="/home" class="moile-nav-items block my-4 text-gray-300 hover:text-blue-500">Notes</a>
           <a href="/logout" class="moile-nav-items block my-4 text-blue-800 hover:text-blue-500">Logout</a>
+          <button onClick="triggerDeleteAccount('{{ user.id }}')" class="moile-nav-items block my-4 text-red-800 hover:text-red-500">Delete Account</button>
           {% else %}
           <a href="/" class="moile-nav-items block my-4 text-gray-300 hover:text-blue-500">Home</a>
           <a href="/signup" class="moile-nav-items block my-4 text-gray-300 hover:text-blue-500">Sign Up</a>
@@ -43,6 +49,7 @@
           <a href="/logout" class="moile-nav-items block my-4 text-blue-800 hover:text-blue-500">Logout</a>
         {% endif %}
       </div>
+      {% endif %}
     </div>
   </header>
 
@@ -84,6 +91,14 @@
   </div>
 
   <div class="mt-20 text-gray-300">
+
+    <!-- <div class="mx-auto bg-gray-800 w-[23rem] h-32 z-20 flex flex-col justify-center items-center space-y-5 rounded-3xl">
+      <h5>Sure to delete account?</h5>
+      <div class="flex space-x-8">
+        <button class="w-24 h-12 rounded-xl bg-green-500">Cancel</button>
+        <button class="w-24 h-12 rounded-xl bg-red-500">Delete</button>
+      </div>
+    </div> -->
     {% block content %}
     {% endblock %}
   </div>
