@@ -1,23 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Krona+One&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 @layer components {
   .alert {
     @apply w-[300px] md:w-[400px] absolute right-0 mt-4 rounded-lg shadow-lg flex flex-col px-3 py-1;
   }
-  
+
   .alert-title {
     @apply font-semibold italic text-lg flex justify-between;
   }
-  
+
   .alert-content {
     @apply text-sm;
   }
-  
 
   .alert-info {
     @apply bg-blue-100 text-blue-800 border-blue-500;
@@ -69,7 +67,7 @@
 }
 
 * {
-  font-family: 'Krona One', sans-serif;
+  font-family: "Krona One", sans-serif;
 }
 
 .hamburger-button {
@@ -94,15 +92,15 @@
   transform: translateY(15px);
 }
 
-.open-toggle>.hamburger-dash:nth-child(1) {
+.open-toggle > .hamburger-dash:nth-child(1) {
   transform: rotate(45deg) translateY(5px) translateX(12px);
 }
 
-.open-toggle>.hamburger-dash:nth-child(2) {
+.open-toggle > .hamburger-dash:nth-child(2) {
   display: none;
 }
 
-.open-toggle>.hamburger-dash:nth-child(3) {
+.open-toggle > .hamburger-dash:nth-child(3) {
   transform: rotate(-45deg) translateY(9px) translateX(-3px);
 }
 
@@ -135,4 +133,3 @@
   display: flex;
   flex-direction: column;
 }
-
