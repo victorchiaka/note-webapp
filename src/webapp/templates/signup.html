@@ -7,30 +7,30 @@
 <body>
   {% block content %}
   <div class="w-[90%] mx-auto flex flex-col justify-center items-center">
-    <div class="text-center my-8">
-      <h1 class="text-4xl font-bold text-blue-700">Signup</h1>
+    <div class="text-center my-4">
+      <h1 class="text-2xl font-bold text-blue-700">Signup</h1>
     </div>
     <div class="w-[400px] mt-6 bg-gray-800 p-6 rounded-lg shadow-md">
       <form action="/signup" method="post" class="flex flex-col space-y-4">
         <div>
-          <input type="text" name="username" id="username" placeholder="Username" class="w-full bg-gray-700 border-2 border-gray-600 rounded-md py-3 px-4 text-lg focus:outline-none focus:border-blue-500">
+          <input type="text" name="username" id="username" placeholder="Username" class="w-full bg-gray-700 border-2 border-gray-600 rounded-md py-3 px-4 text-sm focus:outline-none focus:border-blue-500">
         </div>
         <div>
-          <input type="email" name="email" id="email" placeholder="Email" class="w-full bg-gray-700 border-2 border-gray-600 rounded-md py-3 px-4 text-lg focus:outline-none focus:border-blue-500">
+          <input type="email" name="email" id="email" placeholder="Email" class="w-full bg-gray-700 border-2 border-gray-600 rounded-md py-3 px-4 text-sm focus:outline-none focus:border-blue-500">
         </div>
         <div>
-          <input type="password" name="password" id="password" placeholder="Password" class="w-full bg-gray-700 border-2 border-gray-600 rounded-md py-3 px-4 text-lg focus:outline-none focus:border-blue-500">
+          <input type="password" name="password" id="password" placeholder="Password" class="w-full bg-gray-700 border-2 border-gray-600 rounded-md py-3 px-4 text-sm focus:outline-none focus:border-blue-500">
         </div>
         <div>
-          <input type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm Password" class="w-full bg-gray-700 border-2 border-gray-600 rounded-md py-3 px-4 text-lg focus:outline-none focus:border-blue-500">
+          <input type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm Password" class="w-full bg-gray-700 border-2 border-gray-600 rounded-md py-3 px-4 text-sm focus:outline-none focus:border-blue-500">
         </div>
-        <button type="submit" class="bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out text-xl">
+        <button type="submit" class="bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out text-sm">
           Signup
         </button>
       </form>
     </div>
     <div class="mt-6">
-      <p class="text-gray-700">Already have an account? <a href="/login" class="text-blue-600 hover:underline">Login Here</a></p>
+      <p class="text-gray-700 text-xs">Already have an account? <a href="/login" class="text-blue-600 hover:underline">Login Here</a></p>
     </div>
   </div>
 {% endblock %}

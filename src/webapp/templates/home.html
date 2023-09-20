@@ -7,9 +7,9 @@
   <div class="w-[90%] mx-auto flex flex-col justify-center items-center">
     <div class="text-center my-4 text-balance">
       {% if name %}
-      <h1 class="text-3xl font-semibold">Welcome back, {{ name }}!</h1>
+      <h1 class="text-xl font-semibold">Welcome back, {{ name }}!</h1>
       {% else %}
-      <h1 class="text-3xl font-semibold">Welcome back!</h1>
+      <h1 class="text-xl font-semibold">Welcome back!</h1>
       {% endif %}
     </div>
 
@@ -22,7 +22,7 @@
               <li class="bg-gray-800 mt-2 rounded-lg md:rounded-none">
                 <div id="note" class="py-2 px-4">
                   <div class="flex justify-between py-2">
-                    <h3 class="text-lg font-semibold">{{ note.title }}</h3>
+                    <h3 class="text-sm font-semibold md:text-lg">{{ note.title }}</h3>
                     <div class="relative">
                       <button title="options" class="three-dots-toggler w-6 h-6 border-2 border-gray-600 rounded-full">
                         <img src="../static/images/vertical-dot.svg">
@@ -35,14 +35,14 @@
                       </div>
                     </div>
                   </div>
-                    <p class="text-sm">{{ note.content }}</p>
+                    <p class="text-xs md:text-sm">{{ note.content }}</p>
                 </div>
               <li>
             {% endfor %}
           </ul>
         </div>
         {% else %}
-          <h3 title="add a note to not show this again" class="text-xl text-white text-center">No notes yet</h3>
+          <h3 title="add a note to not show this again" class="text-white text-center md:text-xl">No notes yet</h3>
       {% endif %}
 
       <!-- mobile create note form-->
@@ -51,10 +51,10 @@
           <input type="text" name="title" id="title" placeholder="Note Title" class="border rounded-md p-3 mb-4 text-sm focus:text-gray-800">
           <textarea name="content" id="content" placeholder="Content..." cols="30" rows="10" class="bg-gray-100 rounded-md p-3 text-sm focus:text-gray-800"></textarea>
           <div class="self-center space-x-4">
-            <button id="cancle-add-note" type="button" class="w-[100px] bg-red-500 text-white font-semibold py-3 rounded-lg hover:bg-red-600 transition duration-300 ease-in-out mt-4 text-xl">
+            <button id="cancle-add-note" type="button" class="w-[100px] bg-red-500 text-white font-semibold py-3 rounded-lg hover:bg-red-600 transition duration-300 ease-in-out mt-4">
               Cancel
             </button>
-            <button id="create-note" type="submit" class="w-[100px] bg-blue-500 text-white font-semibold py-3 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out mt-4 text-xl">
+            <button id="create-note" type="submit" class="w-[100px] bg-blue-500 text-white font-semibold py-3 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out mt-4">
               Create
             </button>
           </div>
@@ -65,13 +65,13 @@
         <form action="/home" method="POST" class="flex flex-col w-[100%]">
           <input type="text" name="title" id="title" placeholder="Note Title" class="bg-gray-100 border rounded-md p-3 mb-4 w-[95%] mx-auto text-sm focus:text-gray-800">
           <textarea name="content" id="content" placeholder="Content..." cols="30" rows="13" class="bg-gray-100 rounded-md p-3 w-[95%] mx-auto text-sm focus:text-gray-800"></textarea>
-          <button type="submit" class="w-48 mx-auto bg-blue-500 text-white font-semibold py-3 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out mt-4 text-xl">
+          <button type="submit" class="w-48 mx-auto bg-blue-500 text-white font-semibold py-3 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out mt-4 text-lg">
             Create Note
           </button>
         </form>
       </div>
 
-      <button id="add-note-button" class="self-center w-36 bg-blue-500 text-white font-semibold py-3 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out mt-4 text-xl md:hidden">
+      <button id="add-note-button" class="self-center w-32 bg-blue-500 text-white font-semibold py-3 rounded-xl hover:bg-blue-600 transition duration-300 ease-in-out mt-4 md:hidden">
         Add Note
       </button>
     </div>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Krona+One&display=swap");
 
 /*
 ! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com
@@ -839,6 +839,10 @@ video {
   width: 100%;
 }
 
+.w-32{
+  width: 8rem;
+}
+
 .flex-col{
   flex-direction: column;
 }
@@ -1064,6 +1068,16 @@ video {
   line-height: 1.75rem;
 }
 
+.text-2xl{
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-xs{
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
 .font-bold{
   font-weight: 700;
 }
@@ -1160,7 +1174,7 @@ video {
 }
 
 * {
-  font-family: 'Krona One', sans-serif;
+  font-family: "Krona One", sans-serif;
 }
 
 .hamburger-button {
@@ -1185,15 +1199,15 @@ video {
   transform: translateY(15px);
 }
 
-.open-toggle>.hamburger-dash:nth-child(1) {
+.open-toggle > .hamburger-dash:nth-child(1) {
   transform: rotate(45deg) translateY(5px) translateX(12px);
 }
 
-.open-toggle>.hamburger-dash:nth-child(2) {
+.open-toggle > .hamburger-dash:nth-child(2) {
   display: none;
 }
 
-.open-toggle>.hamburger-dash:nth-child(3) {
+.open-toggle > .hamburger-dash:nth-child(3) {
   transform: rotate(-45deg) translateY(9px) translateX(-3px);
 }
 
@@ -1329,5 +1343,19 @@ video {
     font-size: 1.125rem;
     line-height: 1.75rem;
   }
-}
 
+  .md\:text-5xl{
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .md\:text-sm{
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .md\:text-xl{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
