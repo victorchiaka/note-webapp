@@ -8,6 +8,13 @@ const createNoteButton = document.getElementById("create-note");
 const threeDotsNavTogglers = document.querySelectorAll(".three-dots-toggler");
 const threeDotsNav = document.querySelectorAll(".three-dots-nav");
 
+const confirmDeleteAccountDialogue = document.getElementById(
+  "confirm-deleteAccount-dialogue"
+);
+
+const cancelDeleteAccount = document.getElementById("cancel-delete-account");
+const confirmDeleteAccount = document.getElementById("confirm-delete-account");
+
 threeDotsNavTogglers.forEach((threeDotsNavToggler, index) => {
   threeDotsNavToggler.addEventListener("click", () => {
     threeDotsNav[index].classList.toggle("flex");
@@ -19,15 +26,31 @@ function toggleAddNoteForm() {
   mobileNoteForm.classList.toggle("hidden");
 }
 
+function toggleConfirmDeleteAccountDialogue() {
+  confirmDeleteAccountDialogue.classList.toggle("flex");
+  confirmDeleteAccountDialogue.classList.toggle("hidden");
+}
+
+function promptConfirmDeleteAccount() {
+  toggleConfirmDeleteAccountDialogue();
+}
+
+cancelDeleteAccount.addEventListener(
+  "click",
+  toggleConfirmDeleteAccountDialogue
+);
+confirmDeleteAccount.addEventListener(
+  "click",
+  toggleConfirmDeleteAccountDialogue
+);
+
 function triggerDeleteAccount(userId) {
-  if (window.confirm("Sure to delete account")) {
-    fetch("/delete_account", {
-      method: "DELETE",
-      body: JSON.stringify({ userId: userId }),
-    }).then((_res) => {
-      window.location.href = "/";
-    });
-  }
+  fetch("/delete-account", {
+    method: "DELETE",
+    body: JSON.stringify({ userId: userId }),
+  }).then((_res) => {
+    window.location.href = "/";
+  });
 }
 
 function deleteNote(noteId) {

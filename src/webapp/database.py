@@ -142,6 +142,7 @@ def get_note_by_id(id: uuid):
 
     return note
 
+
 def delete_account_by_id(id: uuid):
     cursor = db_connection.cursor()
     cursor.execute("DELETE FROM users * WHERE id = %s;", (str(id),))
