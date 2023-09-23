@@ -7,7 +7,7 @@ from flask_login import (
 )
 from .models import User
 import uuid, bcrypt
-from .database import get_user_by_email, create_new_user, delete_account_by_id
+from .database import get_user_by_email, create_new_user, delete_account_by_id, delete_all_notes_by_user_id
 from .utils import is_email_taken
 import json
 
@@ -21,16 +21,16 @@ def signup():
         username: str = data.get("username")
         email: str = data.get("email")
         password: str = data.get("password")
-        confirm_password: str = data.get("confirmpassword")
+        confirm_password: str = data.get("confirm_password")
 
         if len(email) < 6:
-            flash("Email must be at least 6 charcters", "warning")
+            flash("Email must be at least 6 characters", "warning")
 
         elif is_email_taken(email):
             flash("Email already taken", "error")
 
         elif len(username) < 3:
-            flash("Username must be at least 3 charcters", "warning")
+            flash("Username must be at least 3 characters", "warning")
 
         elif password != confirm_password:
             flash("Passwords don't match", "error")
@@ -97,6 +97,7 @@ def delete_account():
     data = json.loads(request.data)
     user_id = data.get("userId")
     logout_user()
+    delete_all_notes_by_user_id(user_id)
     delete_account_by_id(user_id)
     flash("account successfully deleted", "success")
     return jsonify({})

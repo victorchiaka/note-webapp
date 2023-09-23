@@ -148,3 +148,9 @@ def delete_account_by_id(id: uuid):
     cursor.execute("DELETE FROM users * WHERE id = %s;", (str(id),))
 
     db_connection.commit()
+
+def delete_all_notes_by_user_id(user_id: uuid):
+    cursor = db_connection.cursor()
+    cursor.execute("DELETE FROM notes * WHERE user_id = %s;", (str(user_id),))
+
+    db_connection.commit()

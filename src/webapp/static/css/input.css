@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Krona+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -67,7 +67,7 @@
 }
 
 * {
-  font-family: "Krona One", sans-serif;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .hamburger-button {

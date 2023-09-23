@@ -14,9 +14,9 @@ class User(UserMixin):
 
     @classmethod
     def get_instance(
-        instance, id: uuid, username: str, email: str, password_hash: bytes
+        cls, id: uuid, username: str, email: str, password_hash: bytes
     ) -> "User":
-        return instance(id, username, email, password_hash)
+        return cls(id, username, email, password_hash)
 
     def is_valid_password(self, password: str):
         return bcrypt.checkpw(
@@ -36,11 +36,11 @@ class Note:
 
     @classmethod
     def get_instance(
-        instance,
+        cls,
         id: uuid,
         user_id: uuid,
         title: str,
         content: str,
         created_at: datetime,
     ) -> "Note":
-        return instance(id, user_id, title, content, created_at)
+        return cls(id, user_id, title, content, created_at)

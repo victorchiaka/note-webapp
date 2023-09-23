@@ -46,6 +46,8 @@ def home():
                 "home.html", user=current_user, notes=get_all_notes(current_user.id)
             )
 
+        return render_template("home.html", user=current_user)
+
     elif request.method == "DELETE":
         data = json.loads(request.data)
         note_id = data.get("noteId")
@@ -53,7 +55,7 @@ def home():
 
         if note.user_id == current_user.id:
             delete_note_by_id(note_id)
-            flash("note succesfully deleted", "success")
+            flash("note successfully deleted", "success")
 
         return jsonify({})
 
