@@ -7,7 +7,7 @@ from flask_login import (
 )
 from .models import User
 import uuid, bcrypt
-from .database import get_user_by_email, create_new_user, delete_account_by_id
+from .database import get_user_by_email, create_new_user, delete_account_by_id, delete_all_notes_by_user_id
 from .utils import is_email_taken
 import json
 
@@ -97,6 +97,7 @@ def delete_account():
     data = json.loads(request.data)
     user_id = data.get("userId")
     logout_user()
+    delete_all_notes_by_user_id(user_id)
     delete_account_by_id(user_id)
     flash("account successfully deleted", "success")
     return jsonify({})
