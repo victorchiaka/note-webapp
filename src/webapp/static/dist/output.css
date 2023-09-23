@@ -839,6 +839,30 @@ video {
   width: 100%;
 }
 
+.w-\[300px\]{
+  width: 300px;
+}
+
+.w-\[350px\]{
+  width: 350px;
+}
+
+.w-\[21\.875em\]{
+  width: 21.875em;
+}
+
+.min-w-\[300px\]{
+  min-width: 300px;
+}
+
+.min-w-\[350px\]{
+  min-width: 350px;
+}
+
+.min-w-\[21\.875em\]{
+  min-width: 21.875em;
+}
+
 .flex-col{
   flex-direction: column;
 }
