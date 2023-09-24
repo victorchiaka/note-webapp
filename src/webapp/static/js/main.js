@@ -74,22 +74,28 @@ addNoteButton.addEventListener("click", toggleAddNoteForm);
 cancelAddNoteButton.addEventListener("click", toggleAddNoteForm);
 
 document.addEventListener("DOMContentLoaded", function () {
-  const flashDismiss = document.getElementById("flash-dismiss");
-  const flashObject = document.getElementById("flash-object");
+  const flashObjects = document.querySelectorAll("#flash-object");
+  const flashDismissButtons = document.querySelectorAll("#flash-dismiss");
 
-  flashDismiss.addEventListener("click", () => {
-    flashObject.style.opacity = "0";
-    flashObject.style.transition = "opacity 1.2s";
-    setTimeout(() => {
-      flashObject.style.display = "none";
-    }, 3000);
+  flashDismissButtons.forEach((flashDismiss) => {
+    flashDismiss.addEventListener("click", () => {
+      flashObjects.forEach((flashObject) => {
+        flashObject.style.opacity = "0";
+        flashObject.style.transition = "opacity 1.2s";
+        setTimeout(() => {
+          flashObject.style.display = "none";
+        }, 3000);
+      });
+    });
   });
 
   setTimeout(() => {
-    flashObject.style.opacity = "0";
-    flashObject.style.transition = "opacity 1.2s";
-    setTimeout(() => {
-      flashObject.style.display = "none";
-    }, 2000);
+    flashObjects.forEach((flashObject) => {
+      flashObject.style.opacity = "0";
+      flashObject.style.transition = "opacity 1.2s";
+      setTimeout(() => {
+        flashObject.style.display = "none";
+      }, 2000);
+    });
   }, 3000);
 });
