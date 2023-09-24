@@ -46,7 +46,9 @@ def home():
                 "home.html", user=current_user, notes=get_all_notes(current_user.id)
             )
 
-        return render_template("home.html", user=current_user)
+        return render_template(
+            "home.html", user=current_user, notes=get_all_notes(current_user.id)
+        )
 
     elif request.method == "DELETE":
         data = json.loads(request.data)
