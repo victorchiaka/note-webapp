@@ -1,8 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .animation-delay-0s {
+    animation-delay: 0s;
+  }
+  .animation-delay-point-2s {
+    animation-delay: 0.2s;
+  }
+  .animation-delay-point-4s {
+    animation-delay: 0.4s;
+  }
+  .animation-delay-point-6s {
+    animation-delay: 0.6s;
+  }
+  .animation-delay-point-8s {
+    animation-delay: 0.8s;
+  }
+  .animation-delay-1s {
+    animation-delay: 1s;
+  }
+}
 
 @layer components {
   .alert {
@@ -67,7 +88,7 @@
 }
 
 * {
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
 }
 
 .hamburger-button {
@@ -132,4 +153,13 @@
 .open-mobile-nav {
   display: flex;
   flex-direction: column;
+}
+
+.loader-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader {
+  transition: all 1.8s;
 }

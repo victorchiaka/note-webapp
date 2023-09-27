@@ -5,6 +5,14 @@ const cancelAddNoteButton = document.getElementById("cancle-add-note");
 const mobileNoteForm = document.getElementById("mobile-note-form");
 const createNoteButton = document.getElementById("create-note");
 
+window.addEventListener("load", () => {
+  const pageLoader = document.querySelector(".loader");
+  pageLoader.classList.add("loader-hidden");
+  pageLoader.addEventListener("transitionend", () => {
+    document.body.removeChild(pageLoader);
+  });
+});
+
 const threeDotsNavTogglers = document.querySelectorAll(".three-dots-toggler");
 const threeDotsNav = document.querySelectorAll(".three-dots-nav");
 
