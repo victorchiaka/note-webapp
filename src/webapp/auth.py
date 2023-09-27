@@ -7,7 +7,12 @@ from flask_login import (
 )
 from .models import User
 import uuid, bcrypt
-from .database import get_user_by_email, create_new_user, delete_account_by_id, delete_all_notes_by_user_id
+from .database import (
+    get_user_by_email,
+    create_new_user,
+    delete_account_by_id,
+    delete_all_notes_by_user_id,
+)
 from .utils import is_email_taken
 import json
 
