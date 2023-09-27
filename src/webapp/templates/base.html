@@ -7,6 +7,13 @@
   <title>{% block title %} {% endblock %}</title>
 </head>
 <body class="bg-gray-900 text-white">
+  <div class="loader flex justify-center items-center bg-gray-800 w-screen h-screen space-x-2 fixed top-0 left-0 z-20">
+    <div class="bg-blue-800 w-[2.5em] h-[2.5em] rounded-full animate-loadDots animation-delay-0s"></div>
+    <div class="bg-blue-800 w-[2.5em] h-[2.5em] rounded-full animate-loadDots animation-delay-point-2s"></div>
+    <div class="bg-blue-800 w-[2.5em] h-[2.5em] rounded-full animate-loadDots animation-delay-point-4s"></div>
+    <div class="bg-blue-800 w-[2.5em] h-[2.5em] rounded-full animate-loadDots animation-delay-point-6s"></div>
+    <div class="bg-blue-800 w-[2.5em] h-[2.5em] rounded-full animate-loadDots animation-delay-1s"></div>
+  </div>
   <header class="bg-gray-800 py-4">
     <nav class="w-[90%] mx-auto flex justify-between relative items-center">
       <a href="/" class="text-blue-500 font-bold text-2xl md:text-3xl">web<span class="text-gray-300">notes</span></a>
