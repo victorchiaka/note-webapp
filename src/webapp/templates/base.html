@@ -10,17 +10,16 @@
   <header class="bg-gray-800 py-4">
     <nav class="w-[90%] mx-auto flex justify-between relative items-center">
       <a href="/" class="text-blue-500 text-2xl font-bold">web<span class="text-gray-300">notes</span></a>
-      <div class="hidden md:flex space-x-4">
+      <div class="hidden md:flex space-x-8">
         {% if user.is_authenticated %}
-          <a href="/" class="hover:text-gray-300">Home</a>
-          <a href="/home" class="hover:text-gray-300">Notes</a>
-          <a href="/logout" class="bg-blue-800 text-white py-2 px-4 rounded-3xl hover:bg-blue-700 transition duration-300 ease-in-out">Logout</a>
-          <button onClick="promptConfirmDeleteAccount()" class="bg-red-800 text-white py-2 px-4 rounded-3xl hover:bg-red-700 transition duration-300 ease-in-out">Delete Account</button>
+          <a href="/" class="my-2 hover:text-gray-300">Home</a>
+          <a href="/home" class="my-2 hover:text-gray-300">Notes</a>
+          <a href="/logout" class="bg-blue-800 text-white py-2 px-4 rounded-3xl transition duration-300 ease-in-out hover:bg-blue-700">Logout</a>
+          <a onClick="promptConfirmDeleteAccount()" class="bg-red-800 text-white py-2 px-4 rounded-3xl transition duration-300 ease-in-out hover:cursor-pointer hover:bg-red-700">Delete Account</a>
         {% else %}
           <a href="/" class="hover:text-gray-300">Home</a>
           <a href="/signup" class="hover:text-gray-300">Sign Up</a>
           <a href="/login" class="hover:text-gray-300">Login</a>
-          <a href="/logout" class="bg-blue-800 text-white py-2 px-4 rounded-3xl hover:bg-blue-700 transition duration-300 ease-in-out">Logout</a>
         {% endif %}
       </div>
     
