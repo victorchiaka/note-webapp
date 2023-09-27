@@ -89,6 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
     flashObject.style.opacity = "0";
     flashObject.style.transition = "opacity 1.2s";
     setTimeout(() => {
+      flash - dismiss;
       flashObject.style.display = "none";
     }, 2000);
   }, 3000);
