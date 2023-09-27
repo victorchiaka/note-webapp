@@ -6,11 +6,7 @@
 {% block content %}
   <div class="w-[90%] mx-auto flex flex-col justify-center items-center">
     <div class="text-center my-4 text-balance">
-      {% if name %}
-      <h1 class="text-xl font-semibold">Welcome back, {{ name }}!</h1>
-      {% else %}
-      <h1 class="text-xl font-semibold">Welcome back!</h1>
-      {% endif %}
+      <h1 class="text-xl font-semibold">Welcome back! {{ user.name }}</h1>
     </div>
 
     <div class="w-full relative flex justify-between flex-col md:flex-row">
