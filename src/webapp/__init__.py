@@ -25,19 +25,19 @@ def load_user(id) -> User:
     user = get_user_by_id(id)
     return user
 
+
 def generate_secret(length) -> str:
-    return "".join(
-        random.choice(string.ascii_lowercase) for i in range(length)
-        )
+    return "".join(random.choice(string.ascii_lowercase) for i in range(length))
+
 
 def initialize_app():
     if not SECRET_KEY:
         app.config["SECRET_KEY"] = generate_secret(random.randint(12, 30))
     else:
         app.config["SECRET_KEY"] = SECRET_KEY
-    
+
     # registeres the blueprint
     app.register_blueprint(views, url_prefix="/")
     app.register_blueprint(auth, url_prefix="/")
-    
+
     return app
