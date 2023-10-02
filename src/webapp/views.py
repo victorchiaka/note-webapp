@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Blueprint, jsonify, render_template, request, flash
+from flask import Blueprint, jsonify, render_template, request, flash, redirect, url_for
 from flask_login import login_required, current_user
 from .models import Note
 from .database import create_new_note, get_all_notes, delete_note_by_id, get_note_by_id
@@ -42,9 +42,7 @@ def home():
 
             flash("Note successfully created and added", "success")
 
-            return render_template(
-                "home.html", user=current_user, notes=get_all_notes(current_user.id)
-            )
+            return redirect(url_for("views.index", user=current_user))
 
         return render_template(
             "home.html", user=current_user, notes=get_all_notes(current_user.id)
