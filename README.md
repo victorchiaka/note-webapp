@@ -24,11 +24,9 @@ activate venv: ```source .venv/bin/activate```
 create venv:```python -m venv .venv``` <br>
 activate venv: ```venv\Scripts\activate```
 
-### install the following packages ~
+### install all required packages ~
 
-```pip3 install flask```
-
-```pip3 install flask-login```
+```pip install -r requirements.txt```
 
 ### Run app
-```flask --app src/main.py run```
+```python src/main.py```
