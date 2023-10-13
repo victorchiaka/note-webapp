@@ -2,3 +2,4 @@
 *.venv
 *.editorconfig
 *.idea/**
+**/__pycache__
